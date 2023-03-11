@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-eomexskexpj^h*!1h%m^twlxszaw11=d2ai)!nl0y&dk%mvprx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['text2mp3.pythonanywhere.com','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
