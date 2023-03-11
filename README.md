@@ -3,7 +3,7 @@
 
 
 
-### first time doing on ypur local vscode
+### first time doing on your local vscode
 ### you should follow this guides to confiure your git setting 
 ### https://gist.github.com/xirixiz/b6b0c6f4917ce17a90e00f9b60566278
 
@@ -28,5 +28,3 @@ day 2
 ### git push
 
 
-
-### docker run -p 6379:6379 -d redis:5
