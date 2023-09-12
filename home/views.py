@@ -1,34 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .converter import to_mp3
-import os
+from gtts import gTTS 
+import os 
 import random
-from base.settings import BASE_DIR
 
 def Home(request):
     if request.method=='POST':
-        clean()
-        
+        id=random.randint(0, 5000)
+        file_path=f'media/out_{id}.mp3'
         txt=request.POST.get('text')
         if txt and txt != ' ':
-            name=f'output_{random.randint(0, 5000)}.mp3'
-            name=to_mp3(txt,name)
-        
-            file_path =str(BASE_DIR)+ 'media/'+name
-            with open(file_path, 'rb') as pdf_file:
-                response = HttpResponse(pdf_file.read(), content_type='audio/mp3')
-                response[f'Content-Disposition'] = f'attachment; filename="{name}"'
+            text_to_mp3(txt,file_path)
+            with open(file_path, 'rb') as fl:
+                response = HttpResponse(fl.read(), content_type='audio/mp3')
+                response[f'Content-Disposition'] = f'attachment; filename="{file_path}"'
+                print("name - ",file_path)
+                fl.close()
+                # Delete the file
+                os.remove(file_path)
                 return response
     
     return render(request,'home.html')
 
-def clean():
-    
-    folder_path=str(BASE_DIR)+'/media/'
-    for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
-        try:
-            if os.path.isfile(file_path) and '.mp3' in file_path:
-                os.remove(file_path)
-        except Exception as e:
-            print(f"Error deleting {file_path} : {e}")
+
+def text_to_mp3(text,mp3_path):
+	language = 'ar'
+	myobj = gTTS(text=text, lang=language, slow=False)
+	myobj.save(mp3_path)
+	# os.system("start media/output.mp3")
+	return 0
+
+	
