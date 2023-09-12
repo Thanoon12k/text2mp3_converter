@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-eomexskexpj^h*!1h%m^twlxszaw11=d2ai)!nl0y&dk%mvprx
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['text2mp3.pythonanywhere.com','127.0.0.1']
+ALLOWED_HOSTS = ['txt2mp3.pythonanywhere.com','127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
