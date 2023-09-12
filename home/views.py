@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from gtts import gTTS 
 import os 
 import random
+from django.conf import settings
 
 def Home(request):
     if request.method=='POST':
         id=random.randint(0, 5000)
-        file_path=f'media/out_{id}.mp3'
+        file_path = f'{settings.BASE_DIR}/media/out_{id}.mp3'
         txt=request.POST.get('text')
         if txt and txt != ' ':
             text_to_mp3(txt,file_path)
