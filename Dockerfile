@@ -1,18 +1,5 @@
-# Pull the base image
-FROM python:3.11
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-RUN mkdir /TXTSPEAK
-
-# Set work directory
-WORKDIR /TXTSPEAK
-
-# Install dependencies
-COPY requirements.txt /TXTSPEAK/
+FROM python:3.8-slim-buster
+ENV PYTHONBUFFERED=1 
+WORKDIR /djangofolder
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-
-# Copy project
-COPY . /TXTSPEAK/

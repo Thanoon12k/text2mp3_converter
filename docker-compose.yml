@@ -1,0 +1,13 @@
+version: '3.11'
+
+services:
+  django_txt_mp3_app:   #app name
+    build: .            #dot to the working folder that dockerfile in it
+    volumes:
+      - .:/djangofolder   #copy dotfolder in vscode to folder in container
+    ports:
+       [8000:8000]
+    image: app:django_textmp3_imagetag  #image name
+    container_name: django_container    #container name
+    command: python manage.py runserver 0.0.0.0:8000 #command to run on ccontaine
+     

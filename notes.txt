@@ -1,0 +1,87 @@
+basic run django app on docker
+1 - create dockerfile to specify files to copied and commands to be runned
+create dockerignore also to prevent .venv from copied to container
+simplest dockerfile
+
+```
+FROM python:3.8-slim-buster
+WORKDIR /TXTSPEAKAPP
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+COPY . .
+CMD [ "python","manage.py","runserver","0.0.0.0:8000" ]
+
+```
+
+2 - create image from our project
+docker build --tag textmp3app . 
+3 - create container and run this image on it  
+docker run --publish 8000:8000 textmp3app 
+
+***********************two ***********************
+
+inteegrate  docker-compose file
+
+add buffered=1
+add docker-comopse to define serives want to run in our container
+
+docker files
+'''
+FROM python:3.8-slim-buster
+ENV PYTHONBUFFERED=1 
+WORKDIR /djangofolder
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+'''
+
+docker-compose files
+
+'''
+version: '3.11'
+
+services:
+  django_txt_mp3_app:   #serivce name 
+    build: .            #dot to the working folder that dockerfile in it
+    volumes:
+      - .:/djangofolder   #copy dotfolder in vscode to folder in container
+    ports:
+       [8000:8000]
+    image: txt_mp3_image:django_textmp3_imagetag  #image name
+    container_name: django_container    #container name
+    command: python manage.py runserver 0.0.0.0:8000 #command to run on ccontaine
+     
+
+
+'''
+
+
+
+if want to build copy of your app in other container just change container_name in docker compose and port
+this is other conainer they both can runing in same time
+
+docker-compose files
+
+'''
+version: '3.11'
+
+services:
+  django_txt_mp3_app:   #serivce name 
+    build: .            #dot to the working folder that dockerfile in it
+    volumes:
+      - .:/djangofolder   #copy dotfolder in vscode to folder in container
+    ports:
+       [9000:9000]
+    image: txt_mp3_image:django_textmp3_imagetag  #image name
+    container_name: fofo_django_container    #container name
+    command: python manage.py runserver 0.0.0.0:9000 #command to run on ccontaine
+     
+
+
+'''
+
+
+
+docker-compose build
+docker-compose run --rm django_txt_mp3_app      #serivce name 
+docker-compose up
