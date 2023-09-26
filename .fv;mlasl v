@@ -1,0 +1,14 @@
+[33mc3a19a7[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/no_no[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mno_no[m[33m, [m[1;32mbackup_no_no[m[33m)[m add rest api to project & edit readme flle
+[33m27425d7[m[33m ([m[1;31morigin/no-docker[m[33m, [m[1;31morigin/master[m[33m)[m no docker
+[33mf032711[m[33m ([m[1;32mno_docker_here[m[33m, [m[1;32mno[m[33m)[m restyle commint removing text after submit
+[33me69c73f[m remove text after sumbit in html
+[33m7a3ff1f[m fix media and static urls in setting
+[33m16a177a[m add python anywhere allowed osts
+[33m3dd5bda[m remove converter file clean fun
+[33m3e27bc7[m add arabic language and fix issuse image deleting
+[33mcc370ea[m add req.txt and allowed hosts
+[33m42ab1e2[m add req.txt and allowed hosts
+[33ma701959[m add req.txt and allowed hosts
+[33m2b9c531[m Update settings.py
+[33m73cdebd[m Delete git
+[33m400c7cd[m upload initial fiels
