@@ -17,7 +17,7 @@ An online tool for effortlessly converting text to MP3. Designed for precision a
 - Flexible API: 
   Whether you're on a desktop, mobile or any other platform, our API endpoint ``api/convert-to-mp3/`` ensures you can fetch your MP3 files anytime, anywhere.
 - Efficient Workflow: 
-  Each day, the initial 50 operations are driven by an efficient text-to-MP3 API. Our reliable Python backend seamlessly steps in, guaranteeing unlimited, consistent, and flawless service.
+  Our reliable Python backend seamlessly steps in, guaranteeing unlimited, consistent, and flawless service.
 
 ## Getting Started with Development 🚀
 
@@ -30,11 +30,12 @@ Ensure you have Python - version 3.11.5 recommended - and pip installed on your 
 
 1. **Clone the repository.**
    ``
-   git clone git@github.com:Thanoon12k/text-to-mp3-converter.git
+   git clone https://github.com/Thanoon12k/text2mp3_converter.git
    ``
 2. **Navigate to the project directory.**
    ``
-   cd path-to-project-directory
+   cd text2mp3_converter
+
    ``
 3. **Create a virtual environment.**
    ``
